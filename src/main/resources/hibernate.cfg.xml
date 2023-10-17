@@ -48,5 +48,6 @@
         <mapping class="com.tha103.newview.admin.model.AdminVO"/>
         
         <mapping class="com.tha103.newview.pubuser.model.PubUserVO"/>
+        <mapping class="com.tha103.newview.act.model.Act"/>
     </session-factory>
 </hibernate-configuration>

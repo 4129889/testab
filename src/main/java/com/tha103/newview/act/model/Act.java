@@ -26,7 +26,7 @@ import com.tha103.newview.cityAdress.model.CityAddress;
 @Entity
 @Table(name = "act")
 // 配合 TestHQLWithParameter.java
-@NamedQuery(name = "getAllActs", query = "from Act where ActID > :ActID order by ActID desc")
+//@NamedQuery(name = "getAllActs", query = "from Act where ActID > :ActID order by ActID desc")
 public class Act {
 	@Expose
 	@Id
