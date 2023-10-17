@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<button onclick="getData();" >取得</button>
+	<div id="result"></div>
+	<div id="result2"></div>
+	<div id="result3"></div>
+	<img>
+	
+	<script>
+	const img = document.querySelector('img');
+
+	fetch('cart')
+		.then(function(resp){
+			return resp.json();
+		})
+		.then(function(item){
+			console.log(item);
+			const { actPic } = item;
+			const int8Arr = new Int8Array(actPic);
+			const blob = new Blob([int8Arr]);
+			img.src = URL.createObjectURL(blob);
+		});
+	
+	fetch("cart")
+	.then(function(resp){
+		return resp.json();
+	}).then(function(data){
+	console.log(data);
+	console.log(data.actPicID);
+	console.log(data.actPic);
+	//目前cart是物件不是陣列
+	let result =document.querySelector("#result2");
+// 	console.log(result2);
+	result.innerHTML = "<div>"+ data.actPicID +"</div>";
+	});
+	
+	fetch("cart2")
+	.then(function(resp){
+		console.log(resp);
+		return resp.json();
+	}).then(function(data){
+	console.log(data);
+// 	console.log(data.actID);
+// 	console.log(data.actName);
+// 	目前cart是物件不是陣列
+	let result =document.querySelector("#result3");
+// 	console.log(result3);
+// 	result.innerHTML = "<div>"+ data.actPicID +"</div>";
+	});
+	
+	function getData()	{
+		fetch("cart")
+		.then(function(resp){
+			return resp.json();
+		}).then(function(data){
+		console.log(data);
+		console.log(data.actPicID);
+		console.log(data.actPic);
+		//目前cart是物件不是陣列
+		let result=document.querySelector("#result");
+		console.log(result);
+		result.innerHTML = "<div>"+ data.actPicID +"</div>";
+		for(let i = 0; i<data.length; i++){
+			let product = data[i];
+			console.log(data);
+			result.innerHTML += "<div>"+product+"</div>";
+		}
+		});
+	}
+
+	
+</script>
+	
+</body>
+
+</html>
